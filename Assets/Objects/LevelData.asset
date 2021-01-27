@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903aa5f3f6db37f4b94480cd509e7bae, type: 3}
+  m_Name: LevelData
+  m_EditorClassIdentifier: 
+  grass: {fileID: 1367798998769493495, guid: a67dee6a5465e294dacde8331ba93e71, type: 3}
+  enemy: {fileID: 7443193924738429263, guid: 5954bb2272363be44b7062c9e85def36, type: 3}
+  playerSpawn: {fileID: 6911690217132049951, guid: 7bfb8d43dd2a3a84cbcaf6a765056995,
+    type: 3}
+  goal: {fileID: 6911690217132049951, guid: e8af6dba79fd81c48b0f5b897d82d04a, type: 3}
+  rock: {fileID: 3591276724981986621, guid: 9346eccd922cda448a327436d05166d5, type: 3}
+  sword: {fileID: 2741694446603731660, guid: ffbaf20fd7d25424a907e28c25759bda, type: 3}
