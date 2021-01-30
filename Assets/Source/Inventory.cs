@@ -37,6 +37,12 @@ public partial class Game
     }
 
 
+    public void GetRandomItem()
+    {
+        int result = UnityEngine.Random.Range(0, scriptableItems.Length - 1);
+        AddItemToInventory(scriptableItems[result]);
+    }
+
     // 1 == weapon, 2 == helmet, 3 == chest
     public void UnequipItem(int equipSlot)
     {
@@ -60,6 +66,11 @@ public partial class Game
             default:
                 break;
         }
+    }
+
+    public void DropItem()
+    {
+        // TODO implement
     }
 
     public void AddItemToInventory(ItemScriptableObject item)

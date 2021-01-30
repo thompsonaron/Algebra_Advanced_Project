@@ -56,10 +56,6 @@ public partial class Game : MonoBehaviour
 		Debug.Log("GRID" + level.grid.Length);
 	}
 
-    private void SpawnPlayer()
-    {
-        
-    }
 
     void Update()
 	{
@@ -90,6 +86,13 @@ public partial class Game : MonoBehaviour
 	TileData currentTile;
 
 	MoveDirection lastMove = MoveDirection.None;
+
+	[HideInInspector] public GameObject[] chestsAndSwords = new GameObject[20];
+
+	void LoadChestsAndSwords()
+    {
+		
+    }
 
 	void CheckSurroundingTiles()
     {

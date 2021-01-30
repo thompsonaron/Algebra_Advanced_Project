@@ -18,6 +18,6 @@ MonoBehaviour:
     type: 3}
   goal: {fileID: 6911690217132049951, guid: e8af6dba79fd81c48b0f5b897d82d04a, type: 3}
   rock: {fileID: 3591276724981986621, guid: 9346eccd922cda448a327436d05166d5, type: 3}
-  sword: {fileID: 100000, guid: 2221a18cfc36ca7448f6f50bc66b151b, type: 3}
+  sword: {fileID: 138470, guid: 630627b9fd11d4340a42d44621ddcfa7, type: 3}
   water: {fileID: 3591276724981986621, guid: 9346eccd922cda448a327436d05166d5, type: 3}
-  chest: {fileID: 100000, guid: 66313392e42faee469a173d021384846, type: 3}
+  chest: {fileID: 133660, guid: 971412afe90b27640b1c78c0641deec9, type: 3}
