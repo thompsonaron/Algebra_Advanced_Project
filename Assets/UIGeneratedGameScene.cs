@@ -1,0 +1,62 @@
+using UnityEngine;
+public static class UIGeneratedGameScene{
+	public static GameObject Canvas;
+	public static GameObject ActionReloadLbl;
+	public static GameObject InventoryPanel;
+	public static GameObject InventoryItemsPanel;
+	public static GameObject InventoryLine0;
+	public static GameObject ItemSlot0;
+	public static GameObject ItemSlot1;
+	public static GameObject ItemSlot2;
+	public static GameObject ItemSlot3;
+	public static GameObject InventoryLine1;
+	public static GameObject ItemSlot4;
+	public static GameObject ItemSlot5;
+	public static GameObject ItemSlot6;
+	public static GameObject ItemSlot7;
+	public static GameObject InventoryLine2;
+	public static GameObject ItemSlot8;
+	public static GameObject ItemSlot9;
+	public static GameObject ItemSlot10;
+	public static GameObject ItemSlot11;
+	public static GameObject InventoryLine3;
+	public static GameObject ItemSlot12;
+	public static GameObject ItemSlot13;
+	public static GameObject ItemSlot14;
+	public static GameObject ItemSlot15;
+	public static GameObject GearPanel;
+	public static GameObject WeaponSlot;
+	public static GameObject HelmentSlot;
+	public static GameObject ChestSlot;
+
+	public static void init() {
+		Canvas = GameObject.Find("Canvas");
+		ActionReloadLbl = GameObject.Find("Canvas/ActionReloadLbl");
+		InventoryPanel = GameObject.Find("Canvas/InventoryPanel");
+		InventoryItemsPanel = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel");
+		InventoryLine0 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine0");
+		ItemSlot0 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine0/ItemSlot0");
+		ItemSlot1 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine0/ItemSlot1");
+		ItemSlot2 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine0/ItemSlot2");
+		ItemSlot3 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine0/ItemSlot3");
+		InventoryLine1 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine1");
+		ItemSlot4 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine1/ItemSlot4");
+		ItemSlot5 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine1/ItemSlot5");
+		ItemSlot6 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine1/ItemSlot6");
+		ItemSlot7 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine1/ItemSlot7");
+		InventoryLine2 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine2");
+		ItemSlot8 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine2/ItemSlot8");
+		ItemSlot9 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine2/ItemSlot9");
+		ItemSlot10 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine2/ItemSlot10");
+		ItemSlot11 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine2/ItemSlot11");
+		InventoryLine3 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine3");
+		ItemSlot12 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine3/ItemSlot12");
+		ItemSlot13 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine3/ItemSlot13");
+		ItemSlot14 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine3/ItemSlot14");
+		ItemSlot15 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine3/ItemSlot15");
+		GearPanel = GameObject.Find("Canvas/InventoryPanel/GearPanel");
+		WeaponSlot = GameObject.Find("Canvas/InventoryPanel/GearPanel/WeaponSlot");
+		HelmentSlot = GameObject.Find("Canvas/InventoryPanel/GearPanel/HelmentSlot");
+		ChestSlot = GameObject.Find("Canvas/InventoryPanel/GearPanel/ChestSlot");
+	}
+}

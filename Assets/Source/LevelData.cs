@@ -11,4 +11,8 @@ public class LevelData : ScriptableObject
 	public GameObject goal;
 	public GameObject rock;
 	public GameObject sword;
+
+	public GameObject water;
+	public GameObject chest;
+
 }

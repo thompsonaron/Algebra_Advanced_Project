@@ -37,6 +37,8 @@ public static class Util
         if(tile == TileType.Goal) return data.goal;
         if(tile == TileType.Rock) return data.rock;
         if(tile == TileType.Sword) return data.sword;
+        if(tile == TileType.Water) return data.water;
+        if(tile == TileType.Chest) return data.chest;
 
         return null;
     }
@@ -49,6 +51,8 @@ public static class Util
 		if (tile == TileType.Goal) return Color.cyan;
 		if (tile == TileType.Rock) return Color.gray;
 		if (tile == TileType.Sword) return Color.yellow;
+		if (tile == TileType.Water) return Color.magenta;
+		if (tile == TileType.Sword) return Color.white;
 
 		return Color.white;
 	}

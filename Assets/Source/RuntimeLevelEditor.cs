@@ -59,7 +59,7 @@ public class RuntimeLevelEditor : MonoBehaviour
 					}
 					else
 					{
-						var value = (int)(level.grid[i][j] + 1) % 6;
+						var value = (int)(level.grid[i][j] + 1) % 8;
 						level.grid[i][j] = (TileType)value;
 					}
 				}
@@ -81,6 +81,8 @@ public class RuntimeLevelEditor : MonoBehaviour
 			GUI.BeginGroup(new Rect(0, level.grid[0].Length * 50 + 50, Screen.width, Screen.height));
                 GUILayout.BeginHorizontal();
                     GUILayout.Label("isRanged: ", GUILayout.Width(70));
+                    tile.isRanged = GUILayout.Toggle(tile.isRanged, "");
+					GUILayout.Label("isRanged: ", GUILayout.Width(70));
                     tile.isRanged = GUILayout.Toggle(tile.isRanged, "");
                 GUILayout.EndHorizontal();
 			GUI.EndGroup();
