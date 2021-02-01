@@ -13,6 +13,26 @@ public partial class Game
             return;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (currentTileType == TileType.Enemy)
+            {
+                currentTile.additionalHealth -= player.attackDamage;
+                if (currentTile.additionalHealth <= 0)
+                {
+                    // TODO enemy killed something
+                    DeactiveCurrentTileObject();
+                    currentTileType = TileType.Grass;
+                    actionReloadTime = player.actionReloadSpeed;
+                }
+            }
+        }
+
+        //if (isInCombat)
+        //{
+        //    return;
+        //}
+
         if (Input.GetKeyDown(KeyCode.W) && canMoveUp)
         {
             playerObject.transform.position = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y, playerObject.transform.position.z + 1);
@@ -61,22 +81,29 @@ public partial class Game
 
         }
 
+        
+
 
         currentTile = level.data[playerPosX][playerPosY];
         currentTileType = level.grid[playerPosX][playerPosY];
-
+        if (currentTileType == TileType.Enemy)
+        {
+            Debug.Log(currentTile.additionalHealth);
+        }
         Debug.Log(currentTileType);
 
     }
 
     private void DeactiveCurrentTileObject()
     {
+        Debug.Log("Calling deactivate");
         Collider[] hitColliders = Physics.OverlapSphere(playerObject.transform.position, 0.5f);
+        Debug.Log("Calling deactivate" + hitColliders.Length);
         foreach (var hitCollider in hitColliders)
         {
+            Debug.Log(hitCollider.gameObject.name);
             if (hitCollider.CompareTag("Destroyable"))
             {
-                Debug.Log(hitCollider.gameObject.name);
                 hitCollider.gameObject.SetActive(false);
             }
         }

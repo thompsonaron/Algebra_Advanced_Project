@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LevelData
   m_EditorClassIdentifier: 
   grass: {fileID: 1367798998769493495, guid: a67dee6a5465e294dacde8331ba93e71, type: 3}
-  enemy: {fileID: 1423417334750076, guid: d2b11d59c34b8794a916e2e3adca29b6, type: 3}
+  enemy: {fileID: 1423417334750076, guid: c76aec6e9cc0dae47ae1776185699747, type: 3}
   playerSpawn: {fileID: 6911690217132049951, guid: 7bfb8d43dd2a3a84cbcaf6a765056995,
     type: 3}
   goal: {fileID: 6911690217132049951, guid: e8af6dba79fd81c48b0f5b897d82d04a, type: 3}

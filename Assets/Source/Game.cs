@@ -29,6 +29,7 @@ public partial class Game : MonoBehaviour
     {
 		player.actionReloadSpeed = 2f;
 		actionReloadTime = player.actionReloadSpeed;
+		player.attackDamage = 5;
     }
 
 	void instantiateLevel()
@@ -50,6 +51,10 @@ public partial class Game : MonoBehaviour
 					playerPosY = y;
 					
 				}
+                if (level.grid[x][y] == TileType.Enemy)
+                {
+					level.data[x][y].additionalHealth = 11;
+                }
 			}
 		}
 
@@ -119,10 +124,10 @@ public partial class Game : MonoBehaviour
 			Debug.Log(canMoveDown = IsTileMovableTo(level.grid[playerPosX][playerPosY + 1]));
         }
 
-        Debug.Log("L:" + canMoveLeft);
-        Debug.Log("R:" + canMoveRight);
-        Debug.Log("U:" + canMoveUp);
-        Debug.Log("D:" + canMoveDown);
+        //Debug.Log("L:" + canMoveLeft);
+        //Debug.Log("R:" + canMoveRight);
+        //Debug.Log("U:" + canMoveUp);
+        //Debug.Log("D:" + canMoveDown);
 
         //      Debug.Log("L:" + level.grid[playerPosX - 1][playerPosY]);
         //Debug.Log("R:" + level.grid[playerPosX + 1][playerPosY]);
@@ -195,20 +200,15 @@ public class Player
 {
 	public int health;
 	//public int armor;
-	public Attack attack;
 	public List<Item> inventory;
 	public float actionReloadSpeed;
-
-}
-
-
-
-[Serializable]
-public class Attack
-{
 	public int actionReload;
-	public float actionReloadSpeed;
+	public int attackDamage;
 }
+
+
+
+
 
 
 
