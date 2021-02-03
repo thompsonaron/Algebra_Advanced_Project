@@ -114,7 +114,7 @@ public partial class Game
         switch (currentTileType)
         {
             case TileType.Enemy:
-                isInCombat = true;
+               // isInCombat = true;
                 break;
             case TileType.Goal:
                 // TODO player wins

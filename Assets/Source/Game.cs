@@ -30,6 +30,7 @@ public partial class Game : MonoBehaviour
 		player.actionReloadSpeed = 2f;
 		actionReloadTime = player.actionReloadSpeed;
 		player.attackDamage = 5;
+		player.health = 30;
     }
 
 	void instantiateLevel()
@@ -58,7 +59,7 @@ public partial class Game : MonoBehaviour
 			}
 		}
 
-		Debug.Log("GRID" + level.grid.Length);
+		//Debug.Log("GRID" + level.grid.Length);
 	}
 
 
@@ -66,12 +67,47 @@ public partial class Game : MonoBehaviour
 	{
 		CheckSurroundingTiles();
 		PlayerInput();
-		Debug.Log("Player pos: " + playerPosX + " " + playerPosY);
+		//Debug.Log("Player pos: " + playerPosX + " " + playerPosY);
 		UIUpdate();
 		actionReloadTime -= Time.deltaTime;
 		initUI();
 		UpdateRaycast();
+		Combat();
 	}
+
+
+	private float currentEnemyAttackSpeed;
+	private float currentEnemyAttackTime;
+
+	public void Combat()
+    {
+        if (currentTileType == TileType.Enemy && !isInCombat)
+        {
+			isInCombat = true;
+			currentEnemyAttackSpeed = currentTile.actionSpeed;
+			// TODO temporary - remove
+			currentEnemyAttackSpeed = 2f;
+			currentEnemyAttackTime = currentEnemyAttackSpeed;
+        }
+        else if (currentTileType != TileType.Enemy)
+        {
+			Debug.Log("COMBAT RESET");
+			isInCombat = false;
+		}
+
+        if (isInCombat)
+        {
+			Debug.Log("COMBAT " + currentEnemyAttackTime);
+			currentEnemyAttackTime -= Time.deltaTime;
+            if (currentEnemyAttackTime <= 0f)
+            {
+				player.health -= 7;
+				Debug.Log("PLAYER HEALTH " + player.health);
+				currentEnemyAttackTime = currentEnemyAttackSpeed;
+            }
+        }
+    }
+
 
 	public bool canMoveUp;
 	public bool canMoveDown;
