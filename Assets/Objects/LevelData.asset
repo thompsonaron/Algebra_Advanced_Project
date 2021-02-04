@@ -16,8 +16,9 @@ MonoBehaviour:
   enemy: {fileID: 1423417334750076, guid: c76aec6e9cc0dae47ae1776185699747, type: 3}
   playerSpawn: {fileID: 6911690217132049951, guid: 7bfb8d43dd2a3a84cbcaf6a765056995,
     type: 3}
-  goal: {fileID: 6911690217132049951, guid: e8af6dba79fd81c48b0f5b897d82d04a, type: 3}
+  goal: {fileID: 120096, guid: 07bee576df5b5e049a39f20f65b6ddb1, type: 3}
   rock: {fileID: 3591276724981986621, guid: 9346eccd922cda448a327436d05166d5, type: 3}
   sword: {fileID: 138470, guid: 630627b9fd11d4340a42d44621ddcfa7, type: 3}
   water: {fileID: 3591276724981986621, guid: 9346eccd922cda448a327436d05166d5, type: 3}
   chest: {fileID: 133660, guid: 971412afe90b27640b1c78c0641deec9, type: 3}
+  boss: {fileID: 1475337874035606, guid: c4e3b5d3572bced46ab0fdb482897812, type: 3}

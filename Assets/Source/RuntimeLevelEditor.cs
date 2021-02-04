@@ -59,7 +59,7 @@ public class RuntimeLevelEditor : MonoBehaviour
 					}
 					else
 					{
-						var value = (int)(level.grid[i][j] + 1) % 8;
+						var value = (int)(level.grid[i][j] + 1) % 9;
 						level.grid[i][j] = (TileType)value;
 					}
 				}

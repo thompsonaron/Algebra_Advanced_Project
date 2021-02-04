@@ -6,6 +6,9 @@ using UnityEngine;
 
 public static class Util
 {
+    
+
+
     public static void serialize(Level level, string path)
     {
         FileStream fs = new FileStream(path, FileMode.Create);
@@ -39,6 +42,7 @@ public static class Util
         if(tile == TileType.Sword) return data.sword;
         if(tile == TileType.Water) return data.water;
         if(tile == TileType.Chest) return data.chest;
+        if(tile == TileType.Boss) return data.boss;
 
         return null;
     }
@@ -53,6 +57,7 @@ public static class Util
 		if (tile == TileType.Sword) return Color.yellow;
 		if (tile == TileType.Water) return Color.magenta;
 		if (tile == TileType.Sword) return Color.white;
+		if (tile == TileType.Boss) return new Color(0.3f, 0.4f, 0.6f);
 
 		return Color.white;
 	}

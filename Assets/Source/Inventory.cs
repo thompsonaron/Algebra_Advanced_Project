@@ -21,6 +21,7 @@ public partial class Game
     public Image weaponImage;
 
 
+
     public void initInventory()
     {
         inventory = new ItemScriptableObject[16];

@@ -14,5 +14,6 @@ public class LevelData : ScriptableObject
 
 	public GameObject water;
 	public GameObject chest;
+	public GameObject boss;
 
 }

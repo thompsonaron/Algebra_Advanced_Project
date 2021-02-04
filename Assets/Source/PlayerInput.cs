@@ -15,17 +15,28 @@ public partial class Game
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (currentTileType == TileType.Enemy)
+            if (currentTileType == TileType.Enemy || currentTileType == TileType.Boss)
             {
                 currentTile.additionalHealth -= player.attackDamage;
+                actionReloadTime = player.actionReloadSpeed;
                 if (currentTile.additionalHealth <= 0)
                 {
+                    Debug.Log("KILLED");
+                    Debug.Log(currentTileType);
+                    // BEWARE - DeactivateCurrentTileObject will change boss tilel to grass and wont work so it has to be here
+                    if (currentTileType == TileType.Boss)
+                    {
+                        Debug.Log("KILLED THE BOSS");
+                        bossKilled = true;
+                    }
+                    enemyKillCounter++;
                     // TODO enemy killed something
                     DeactiveCurrentTileObject();
                     currentTileType = TileType.Grass;
-                    actionReloadTime = player.actionReloadSpeed;
                 }
             }
+            
+            
         }
 
         //if (isInCombat)
@@ -39,6 +50,7 @@ public partial class Game
             lastMove = MoveDirection.Up;
             playerPosY--;
             actionReloadTime = player.actionReloadSpeed;
+            stepsCounter++;
         }
         if (Input.GetKeyDown(KeyCode.S) && canMoveDown)
         {
@@ -46,6 +58,7 @@ public partial class Game
             lastMove = MoveDirection.Down;
             playerPosY++;
             actionReloadTime = player.actionReloadSpeed;
+            stepsCounter++;
         }
         if (Input.GetKeyDown(KeyCode.A) && canMoveLeft)
         {
@@ -53,6 +66,7 @@ public partial class Game
             lastMove = MoveDirection.Left;
             playerPosX--;
             actionReloadTime = player.actionReloadSpeed;
+            stepsCounter++;
         }
         if (Input.GetKeyDown(KeyCode.D) && canMoveRight)
         {
@@ -60,6 +74,7 @@ public partial class Game
             lastMove = MoveDirection.Right;
             playerPosX++;
             actionReloadTime = player.actionReloadSpeed;
+            stepsCounter++;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -86,11 +101,11 @@ public partial class Game
 
         currentTile = level.data[playerPosX][playerPosY];
         currentTileType = level.grid[playerPosX][playerPosY];
-        if (currentTileType == TileType.Enemy)
+        if (currentTileType == TileType.Enemy || currentTileType == TileType.Boss)
         {
             Debug.Log(currentTile.additionalHealth);
         }
-        Debug.Log(currentTileType);
+
 
     }
 

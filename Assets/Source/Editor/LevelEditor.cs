@@ -28,6 +28,7 @@ public class LevelEditor : EditorWindow
 			level = new Level();
 			level.grid = new TileType[5][];
 			level.data = new TileData[5][];
+			level.goalType = 1;
 			for (int i = 0; i < level.grid.Length; i++)
 			{
 				level.grid[i] = new TileType[5];
@@ -61,7 +62,7 @@ public class LevelEditor : EditorWindow
 					}
 					else
 					{
-						var value = (int)(level.grid[i][j] + 1) % 6;
+						var value = (int)(level.grid[i][j] + 1) % 9;
 						level.grid[i][j] = (TileType)value;
 					}
 				}
@@ -75,16 +76,39 @@ public class LevelEditor : EditorWindow
 			Util.serialize(level, Util.getLevelPath());
 			AssetDatabase.Refresh();
 		}
+		GUI.BeginGroup(new Rect(0, level.grid[0].Length * 50 + 100, Screen.width, Screen.height));
+		GUILayout.BeginVertical();
+		GUILayout.Label("");
+		GUILayout.Label("Goal: ", GUILayout.Width(70));
+		level.goalType = (int)GUILayout.HorizontalSlider(level.goalType, 1, 3, GUILayout.Width(50));
+		//GUILayout.Label("", GUILayout.Width(70));
+		switch (level.goalType)
+		{
+			case 1:
+				GUILayout.Label("Kill all enemies", GUILayout.Height(40));
+				break;
+			case 2:
+				GUILayout.Label("Kill the boss", GUILayout.Height(40));
+				break;
+			case 3:
+				GUILayout.Label("Reach goal in 10 steps", GUILayout.Height(40));
+				break;
+			default:
+				break;
+		}
+		GUILayout.EndVertical();
+		GUI.EndGroup();
 
-        if(selectedX != -1 && selectedY != -1)
+		if (selectedX != -1 && selectedY != -1)
         {
             var tile = level.data[selectedX][selectedY];
 
-            GUI.BeginGroup(new Rect(0, level.grid[0].Length * 50 + 50, Screen.width, Screen.height));
+            GUI.BeginGroup(new Rect(0, level.grid[0].Length * 50, Screen.width, Screen.height));
                 GUILayout.BeginHorizontal();
                     GUILayout.Label("isRanged: ", GUILayout.Width(70));
                     tile.isRanged = GUILayout.Toggle(tile.isRanged, "");
-                GUILayout.EndHorizontal();
+			GUILayout.EndHorizontal();
+			
             GUI.EndGroup();
         }
 	}
