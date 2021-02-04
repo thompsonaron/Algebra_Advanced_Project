@@ -121,7 +121,6 @@ public partial class Game
         if (isUIElementDown(UIGeneratedGameScene.WeaponSlot))
         {
             UnequipItem(1);
-
         }
         if (isUIElementDown(UIGeneratedGameScene.ChestSlot))
         {

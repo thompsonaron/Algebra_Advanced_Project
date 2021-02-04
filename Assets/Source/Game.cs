@@ -37,11 +37,17 @@ public partial class Game : MonoBehaviour
 
 	void initPlayerStats()
     {
+		player.baseHealth = 15;
+		player.baseAttack = 5;
+		player.health = player.baseHealth;
+		player.attackDamage = player.baseAttack;
+
 		player.actionReloadSpeed = 2f;
 		actionReloadTime = player.actionReloadSpeed;
-		player.attackDamage = 5;
-		player.health = 30;
+		player.damageTaken = 0;
+		player.damageHealed = 0;
 		UpdatePlayerHealth();
+		UpdatePlayerAttack();
     }
 
 	void instantiateLevel()
@@ -66,11 +72,13 @@ public partial class Game : MonoBehaviour
                 if (level.grid[x][y] == TileType.Enemy)
                 {
 					level.data[x][y].additionalHealth = 11;
+					level.data[x][y].additionalAttack = 3;
                 }
 
 				if (level.grid[x][y] == TileType.Boss)
 				{
 					level.data[x][y].additionalHealth = 30;
+					level.data[x][y].additionalAttack = 5;
 				}
 			}
 		}
@@ -171,7 +179,8 @@ public partial class Game : MonoBehaviour
 			currentEnemyAttackTime -= Time.deltaTime;
             if (currentEnemyAttackTime <= 0f)
             {
-				player.health -= 7;
+				player.health -= currentTile.additionalAttack;
+				player.damageTaken += currentTile.additionalAttack;
 				Debug.Log("PLAYER HEALTH " + player.health);
 				currentEnemyAttackTime = currentEnemyAttackSpeed;
             }
@@ -317,6 +326,10 @@ public class Player
 	public float actionReloadSpeed;
 	public int actionReload;
 	public int attackDamage;
+	public int damageTaken;
+	public int damageHealed;
+	public int baseHealth;
+    internal int baseAttack;
 }
 
 

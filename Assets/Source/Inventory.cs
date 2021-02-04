@@ -72,6 +72,7 @@ public partial class Game
             default:
                 break;
         }
+        UpdatePlayerStats();
     }
 
     public void DropItem(int itemSlot)
@@ -119,6 +120,8 @@ public partial class Game
             return;
         }
 
+
+        // inventory swap
         switch (inventory[slot].itemType)
         {
             case 1:
@@ -154,7 +157,36 @@ public partial class Game
             default:
                 break;
         }
+        UpdatePlayerStats();
+    }
 
+    public void UpdatePlayerStats()
+    {
+        int playerAttack = 0;
+        int playerHP = 0;
+        if (helmet != null)
+        {
+            playerAttack += helmet.damage;
+            playerHP += helmet.health;
+        }
+        if (chest != null)
+        {
+            playerAttack += chest.damage;
+            playerHP += chest.health;
+        }
+        if (weapon != null)
+        {
+            playerAttack += weapon.damage;
+            playerHP += weapon.health;
+        }
+
+
+        player.attackDamage = player.baseAttack + playerAttack;
+        player.health = player.baseHealth + playerHP - player.damageTaken + player.damageHealed;
+
+        Debug.Log("PLAYER HPL " + player.health);
+        UpdatePlayerHealth();
+        UpdatePlayerAttack();
     }
 
     public void initInventoryImages()
@@ -195,6 +227,8 @@ public partial class Game
             }
         }
     }
+
+    
     
 }
 

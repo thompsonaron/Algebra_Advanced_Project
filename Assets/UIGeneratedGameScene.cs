@@ -30,6 +30,8 @@ public static class UIGeneratedGameScene{
 	public static GameObject GamePlayPanel;
 	public static GameObject ActionReloadLblInfo;
 	public static GameObject ActionReloadLbl;
+	public static GameObject PlayerDmgLbl;
+	public static GameObject PlayerDmgInfo;
 	public static GameObject PlayerHealthLblInfo;
 	public static GameObject PlayerHealthLbl;
 	public static GameObject EnemyHealthInfo;
@@ -82,6 +84,8 @@ public static class UIGeneratedGameScene{
 		GamePlayPanel = GameObject.Find("Canvas/GamePlayPanel");
 		ActionReloadLblInfo = GameObject.Find("Canvas/GamePlayPanel/ActionReloadLblInfo");
 		ActionReloadLbl = GameObject.Find("Canvas/GamePlayPanel/ActionReloadLbl");
+		PlayerDmgLbl = GameObject.Find("Canvas/GamePlayPanel/PlayerDmgLbl");
+		PlayerDmgInfo = GameObject.Find("Canvas/GamePlayPanel/PlayerDmgInfo");
 		PlayerHealthLblInfo = GameObject.Find("Canvas/GamePlayPanel/PlayerHealthLblInfo");
 		PlayerHealthLbl = GameObject.Find("Canvas/GamePlayPanel/PlayerHealthLbl");
 		EnemyHealthInfo = GameObject.Find("Canvas/GamePlayPanel/EnemyHealthInfo");

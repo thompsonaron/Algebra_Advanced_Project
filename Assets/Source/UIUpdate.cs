@@ -87,5 +87,8 @@ public partial class Game
         UIGeneratedGameScene.EnemyHealthLb.GetComponent<Text>().text = currentTile.additionalHealth.ToString();
     }
 
-    
+    public void UpdatePlayerAttack()
+    {
+        UIGeneratedGameScene.PlayerDmgInfo.GetComponent<Text>().text = player.attackDamage.ToString();
+    }
 }
