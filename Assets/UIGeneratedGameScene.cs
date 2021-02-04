@@ -1,7 +1,6 @@
 using UnityEngine;
 public static class UIGeneratedGameScene{
 	public static GameObject Canvas;
-	public static GameObject ActionReloadLbl;
 	public static GameObject InventoryPanel;
 	public static GameObject InventoryItemsPanel;
 	public static GameObject InventoryLine0;
@@ -28,10 +27,32 @@ public static class UIGeneratedGameScene{
 	public static GameObject WeaponSlot;
 	public static GameObject HelmentSlot;
 	public static GameObject ChestSlot;
+	public static GameObject GamePlayPanel;
+	public static GameObject ActionReloadLblInfo;
+	public static GameObject ActionReloadLbl;
+	public static GameObject PlayerHealthLblInfo;
+	public static GameObject PlayerHealthLbl;
+	public static GameObject EnemyHealthInfo;
+	public static GameObject EnemyHealthLb;
+	public static GameObject InfoPanel;
+	public static GameObject PickUpLbl;
+	public static GameObject WinLosePanel;
+	public static GameObject YouWinLbl;
+	public static GameObject YouLoseLbl;
+	public static GameObject QuitBtn;
+	public static GameObject QuitBtnTxt;
+	public static GameObject ContinueBtn;
+	public static GameObject ContinueBtnTxt;
+	public static GameObject LossRetryBtn;
+	public static GameObject LossRetryBtnTxt;
+	public static GameObject MenuPanel;
+	public static GameObject RetryBtn;
+	public static GameObject RetryBtnTxt;
+	public static GameObject SaveQuitBtn;
+	public static GameObject SaveQuitBtnTxt;
 
 	public static void init() {
 		Canvas = GameObject.Find("Canvas");
-		ActionReloadLbl = GameObject.Find("Canvas/ActionReloadLbl");
 		InventoryPanel = GameObject.Find("Canvas/InventoryPanel");
 		InventoryItemsPanel = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel");
 		InventoryLine0 = GameObject.Find("Canvas/InventoryPanel/InventoryItemsPanel/InventoryLine0");
@@ -58,5 +79,28 @@ public static class UIGeneratedGameScene{
 		WeaponSlot = GameObject.Find("Canvas/InventoryPanel/GearPanel/WeaponSlot");
 		HelmentSlot = GameObject.Find("Canvas/InventoryPanel/GearPanel/HelmentSlot");
 		ChestSlot = GameObject.Find("Canvas/InventoryPanel/GearPanel/ChestSlot");
+		GamePlayPanel = GameObject.Find("Canvas/GamePlayPanel");
+		ActionReloadLblInfo = GameObject.Find("Canvas/GamePlayPanel/ActionReloadLblInfo");
+		ActionReloadLbl = GameObject.Find("Canvas/GamePlayPanel/ActionReloadLbl");
+		PlayerHealthLblInfo = GameObject.Find("Canvas/GamePlayPanel/PlayerHealthLblInfo");
+		PlayerHealthLbl = GameObject.Find("Canvas/GamePlayPanel/PlayerHealthLbl");
+		EnemyHealthInfo = GameObject.Find("Canvas/GamePlayPanel/EnemyHealthInfo");
+		EnemyHealthLb = GameObject.Find("Canvas/GamePlayPanel/EnemyHealthLb");
+		InfoPanel = GameObject.Find("Canvas/InfoPanel");
+		PickUpLbl = GameObject.Find("Canvas/InfoPanel/PickUpLbl");
+		WinLosePanel = GameObject.Find("Canvas/WinLosePanel");
+		YouWinLbl = GameObject.Find("Canvas/WinLosePanel/YouWinLbl");
+		YouLoseLbl = GameObject.Find("Canvas/WinLosePanel/YouLoseLbl");
+		QuitBtn = GameObject.Find("Canvas/WinLosePanel/QuitBtn");
+		QuitBtnTxt = GameObject.Find("Canvas/WinLosePanel/QuitBtn/QuitBtnTxt");
+		ContinueBtn = GameObject.Find("Canvas/WinLosePanel/ContinueBtn");
+		ContinueBtnTxt = GameObject.Find("Canvas/WinLosePanel/ContinueBtn/ContinueBtnTxt");
+		LossRetryBtn = GameObject.Find("Canvas/WinLosePanel/LossRetryBtn");
+		LossRetryBtnTxt = GameObject.Find("Canvas/WinLosePanel/LossRetryBtn/LossRetryBtnTxt");
+		MenuPanel = GameObject.Find("Canvas/MenuPanel");
+		RetryBtn = GameObject.Find("Canvas/MenuPanel/RetryBtn");
+		RetryBtnTxt = GameObject.Find("Canvas/MenuPanel/RetryBtn/RetryBtnTxt");
+		SaveQuitBtn = GameObject.Find("Canvas/MenuPanel/SaveQuitBtn");
+		SaveQuitBtnTxt = GameObject.Find("Canvas/MenuPanel/SaveQuitBtn/SaveQuitBtnTxt");
 	}
 }

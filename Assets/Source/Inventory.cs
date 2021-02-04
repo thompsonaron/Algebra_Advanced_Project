@@ -44,6 +44,11 @@ public partial class Game
         AddItemToInventory(scriptableItems[result]);
     }
 
+    public void GettemFromDroppedTile()
+    {
+        AddItemToInventory(scriptableItems[currentTile.scriptableItemID]);
+    }
+
     // 1 == weapon, 2 == helmet, 3 == chest
     public void UnequipItem(int equipSlot)
     {
@@ -69,11 +74,31 @@ public partial class Game
         }
     }
 
-    public void DropItem()
+    public void DropItem(int itemSlot)
     {
-        // TODO implement
+        if (currentTileType == TileType.Grass || currentTileType == TileType.PlayerSpawn)
+        {
+            for (int i = 0; i < scriptableItems.Length; i++)
+            {
+                if (inventory[itemSlot] == scriptableItems[i])
+                {
+                    Debug.Log("DROPPED! " + itemSlot);
+                    currentTile.scriptableItemID = i;
+                    level.grid[playerPosX][playerPosY] = TileType.DroppedItem;
+                    inventory[itemSlot] = null;
+                    LoadInventoryImages();
+                    if (scriptableItems[i].itemType == 1)
+                    {
+                        Instantiate(data.sword,new Vector3(playerPosX, 0, -playerPosY), Quaternion.identity);
+                    }
+                    else if (scriptableItems[i].itemType == 2 || scriptableItems[i].itemType == 3)
+                    {
+                        Instantiate(data.chest, new Vector3(playerPosX, 0, -playerPosY), Quaternion.identity);
+                    }
+                }
+            }
+        }
     }
-
     public void AddItemToInventory(ItemScriptableObject item)
     {
         for (int i = 0; i < inventory.Length; i++)
@@ -163,6 +188,10 @@ public partial class Game
             if (inventory[i] != null)
             {
                 inventoryImages[i].sprite = inventory[i].icon;
+            }
+            else
+            {
+                inventoryImages[i].sprite = defaultInvetoryLook;
             }
         }
     }

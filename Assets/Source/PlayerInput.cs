@@ -17,7 +17,8 @@ public partial class Game
         {
             if (currentTileType == TileType.Enemy || currentTileType == TileType.Boss)
             {
-                currentTile.additionalHealth -= player.attackDamage;
+                level.data[playerPosX][playerPosY].additionalHealth -= player.attackDamage;
+                //currentTile.additionalHealth -= player.attackDamage;
                 actionReloadTime = player.actionReloadSpeed;
                 if (currentTile.additionalHealth <= 0)
                 {
@@ -32,7 +33,7 @@ public partial class Game
                     enemyKillCounter++;
                     // TODO enemy killed something
                     DeactiveCurrentTileObject();
-                    currentTileType = TileType.Grass;
+                    level.grid[playerPosX][playerPosY] = TileType.Grass;
                 }
             }
             
@@ -83,14 +84,21 @@ public partial class Game
             {
                 GetRandomItem();
                 DeactiveCurrentTileObject();
-                currentTileType = TileType.Grass;
+                level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
             }
             else if (currentTileType == TileType.Sword)
             {
                 GetRandomItem();
                 DeactiveCurrentTileObject();
-                currentTileType = TileType.Grass;
+                level.grid[playerPosX][playerPosY] = TileType.Grass;
+                actionReloadTime = player.actionReloadSpeed;
+            }
+            else if (currentTileType == TileType.DroppedItem)
+            {
+                GettemFromDroppedTile();
+                DeactiveCurrentTileObject();
+                level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
             }
 
@@ -104,6 +112,8 @@ public partial class Game
         if (currentTileType == TileType.Enemy || currentTileType == TileType.Boss)
         {
             Debug.Log(currentTile.additionalHealth);
+            UpdateEnemyHealth();
+            UpdatePlayerHealth();
         }
 
 

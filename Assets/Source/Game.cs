@@ -27,12 +27,12 @@ public partial class Game : MonoBehaviour
 		enemyKillCounter = 0;
 		stepsCounter = 0;
 		bossKilled = false;
-		initUI();
 		instantiateLevel();
-		initPlayerStats();
+		goalType = level.goalType;
+		initUI();
 		initInventory();
 		initRaycast();
-		goalType = level.goalType;
+		initPlayerStats();
 	}
 
 	void initPlayerStats()
@@ -41,6 +41,7 @@ public partial class Game : MonoBehaviour
 		actionReloadTime = player.actionReloadSpeed;
 		player.attackDamage = 5;
 		player.health = 30;
+		UpdatePlayerHealth();
     }
 
 	void instantiateLevel()
@@ -83,16 +84,17 @@ public partial class Game : MonoBehaviour
 		CheckSurroundingTiles();
 		PlayerInput();
 		//Debug.Log("Player pos: " + playerPosX + " " + playerPosY);
-		UIUpdate();
-		actionReloadTime -= Time.deltaTime;
-		initUI();
 		UpdateRaycast();
 		Combat();
 		CheckForWin();
 		CheckForLoss();
+        UIUpdate();
+        actionReloadTime -= Time.deltaTime;
+		Debug.Log(currentTileType);
 	}
 
 
+	// TODO Disable input etc.
 	public void CheckForWin()
     {
         switch (level.goalType)
@@ -101,18 +103,21 @@ public partial class Game : MonoBehaviour
                 if (enemyKillCounter >= 3)
                 {
 					Debug.Log("KILLED ENEMIES WIN!");
+					ActivateWinUi();
                 }
 				break;
 			case 2:
                 if (bossKilled)
                 {
 					Debug.Log("KILLLED THE BOSS");
+					ActivateWinUi();
                 }
 				break;
 			case 3:
                 if (currentTileType == TileType.Goal)
                 {
 					Debug.Log("REACHED THE GOAL");
+					ActivateWinUi();
                 }
 				break;
             default:
@@ -120,11 +125,14 @@ public partial class Game : MonoBehaviour
         }
     }
 
+
+	// TODO Disable input etc.
 	public void CheckForLoss()
 	{
 		if (player.health < 0)
 		{
 			Debug.Log("Regular death");
+			ActivateLossUI();
 		}
 
 		// goal type 3 is steps goal
@@ -133,6 +141,7 @@ public partial class Game : MonoBehaviour
             if (stepsCounter > 10)
             {
 				Debug.Log("Ran out of steps");
+				ActivateLossUI();
             }
         }
     }
@@ -268,7 +277,8 @@ public enum TileType
 	Water,
 	Chest,
     Boss,
-	None
+	None,
+    DroppedItem
 }
 
 [Serializable]
@@ -284,6 +294,8 @@ public class TileData
 	public int additionalAttack;
 	public int additionalActionReload;
 	public int additionalActionReloadSpeed;
+
+	public int scriptableItemID;
 
 }
 

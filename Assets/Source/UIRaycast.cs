@@ -24,7 +24,7 @@ public partial class Game
         hitObjects = new List<RaycastResult>();
 
 
-        UIGeneratedGameScene.init();
+        //UIGeneratedGameScene.init();
     }
 
     public void UpdateRaycast()
@@ -132,67 +132,67 @@ public partial class Game
         // RIGHT CLICK
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot0))
         {
-
+            DropItem(0);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot1))
         {
-
+            DropItem(1);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot2))
         {
-
+            DropItem(2);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot3))
         {
-
+            DropItem(3);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot4))
         {
-
+            DropItem(4);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot5))
         {
-
+            DropItem(5);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot6))
         {
-
+            DropItem(6);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot7))
         {
-
+            DropItem(7);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot8))
         {
-
+            DropItem(8);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot9))
         {
-
+            DropItem(9);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot10))
         {
-
+            DropItem(10);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot11))
         {
-
+            DropItem(11);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot12))
         {
-
+            DropItem(12);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot13))
         {
-
+            DropItem(13);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot14))
         {
-
+            DropItem(14);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot15))
         {
-
+            DropItem(15);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.HelmentSlot))
         {
