@@ -16,9 +16,9 @@ public class RuntimeLevelEditor : MonoBehaviour
 
 	public void init()
 	{
-		if (File.Exists(Util.getLevelPath()))
+		if (File.Exists(Util.getLevelPath(1)))
 		{
-			level = Util.deserialize(Util.getLevelPath());
+			level = Util.deserialize(Util.getLevelPath(1));
 		}
 		else
 		{
@@ -70,7 +70,7 @@ public class RuntimeLevelEditor : MonoBehaviour
 		var saveY = level.grid[0].Length * 50;
 		if (GUI.Button(new Rect(0, saveY, 100, 50), "Save"))
 		{
-			Util.serialize(level, Util.getLevelPath());
+			Util.serialize(level, Util.getLevelPath(1));
 			// AssetDatabase.Refresh();
 		}
 

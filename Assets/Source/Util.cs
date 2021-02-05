@@ -6,9 +6,6 @@ using UnityEngine;
 
 public static class Util
 {
-    
-
-
     public static void serialize(Level level, string path)
     {
         FileStream fs = new FileStream(path, FileMode.Create);
@@ -27,9 +24,9 @@ public static class Util
         return level;
     }
 
-    public static string getLevelPath()
+    public static string getLevelPath(int lvlNumber)
     {
-        return Application.dataPath + "/Maps/level1.bin";
+        return Application.dataPath + "/Maps/level"+ lvlNumber+ ".bin";
     }
 
     public static GameObject getDataFromTile(LevelData data, TileType tile)

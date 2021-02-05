@@ -23,7 +23,7 @@ public partial class Game : MonoBehaviour
 	Level level;
 	void Start()
 	{
-		level = Util.deserialize(Util.getLevelPath());
+		level = Util.deserialize(Util.getLevelPath(1));
 		enemyKillCounter = 0;
 		stepsCounter = 0;
 		bossKilled = false;
