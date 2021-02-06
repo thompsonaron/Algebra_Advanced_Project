@@ -1,9 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/ItemSO", order = 1)]
+[Serializable]
 public class ItemScriptableObject : ScriptableObject
 {
+    public int ID = -1;
     public Sprite icon;
     public float actionReloadSpeed;
     public int damage;

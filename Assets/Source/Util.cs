@@ -13,7 +13,15 @@ public static class Util
         formatter.Serialize(fs, level);
         fs.Close();
     }
-    
+
+    public static void serialize(SaveData save, string path)
+    {
+        FileStream fs = new FileStream(path, FileMode.Create);
+        BinaryFormatter formatter = new BinaryFormatter();
+        formatter.Serialize(fs, save);
+        fs.Close();
+    }
+
     public static Level deserialize(string path)
     {
         FileStream fs = new FileStream(path, FileMode.Open);
@@ -24,9 +32,24 @@ public static class Util
         return level;
     }
 
+    public static SaveData deserializeSave(string path)
+    {
+        FileStream fs = new FileStream(path, FileMode.Open);
+        BinaryFormatter formatter = new BinaryFormatter();
+        var level = (SaveData)formatter.Deserialize(fs);
+        fs.Close();
+
+        return level;
+    }
+
     public static string getLevelPath(int lvlNumber)
     {
         return Application.dataPath + "/Maps/level"+ lvlNumber+ ".bin";
+    }
+
+    public static string getSavePath(int lvlNumber)
+    {
+        return Application.dataPath + "/Maps/save"+ lvlNumber +".bin";
     }
 
     public static GameObject getDataFromTile(LevelData data, TileType tile)
@@ -40,6 +63,7 @@ public static class Util
         if(tile == TileType.Water) return data.water;
         if(tile == TileType.Chest) return data.chest;
         if(tile == TileType.Boss) return data.boss;
+
 
         return null;
     }

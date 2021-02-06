@@ -91,4 +91,6 @@ public partial class Game
     {
         UIGeneratedGameScene.PlayerDmgInfo.GetComponent<Text>().text = player.attackDamage.ToString();
     }
+
+    
 }

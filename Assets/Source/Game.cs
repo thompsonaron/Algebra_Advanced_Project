@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public partial class Game : MonoBehaviour
 {
+	public LevelProgressInfo levelProgress;
 	public GameObject playerObject;
 	[HideInInspector] public int playerPosX;
 	[HideInInspector] public int playerPosY;
@@ -23,16 +25,26 @@ public partial class Game : MonoBehaviour
 	Level level;
 	void Start()
 	{
-		level = Util.deserialize(Util.getLevelPath(1));
+		Debug.Log(levelProgress.levelToLoad);
 		enemyKillCounter = 0;
 		stepsCounter = 0;
 		bossKilled = false;
-		instantiateLevel();
-		goalType = level.goalType;
 		initUI();
 		initInventory();
-		initRaycast();
 		initPlayerStats();
+		initRaycast();
+        if (File.Exists(Util.getSavePath(levelProgress.levelToLoad)))
+        {
+			//Util.deserializeSave(Util.getSavePath(levelProgress.levelToLoad));
+			LoadGame();
+			LoadLevel();
+        }
+        else
+        {
+			level = Util.deserialize(Util.getLevelPath(levelProgress.levelToLoad));
+			instantiateLevel();
+        }
+		goalType = level.goalType;
 	}
 
 	void initPlayerStats()
@@ -86,6 +98,45 @@ public partial class Game : MonoBehaviour
 		//Debug.Log("GRID" + level.grid.Length);
 	}
 
+	void LoadLevel()
+    {
+		for (int x = 0; x < level.grid.Length; x++)
+		{
+			for (int y = 0; y < level.grid[x].Length; y++)
+			{
+                if (level.grid[x][y] != TileType.DroppedItem)
+                {
+					Instantiate(Util.getDataFromTile(data, level.grid[x][y]), new Vector3(x, 0, -y), Quaternion.identity);
+                }
+				if (level.grid[x][y] != TileType.Grass)
+				{
+					Instantiate(Util.getDataFromTile(data, TileType.Grass), new Vector3(x, 0, -y), Quaternion.identity);
+				}
+                if (level.grid[x][y] == TileType.DroppedItem)
+                {
+                    for (int i = 0; i < scriptableItems.Length; i++)
+                    {
+						if (level.data[x][y].scriptableItemID == scriptableItems[i].ID)
+						{
+							Debug.Log(scriptableItems[i].name);
+							Debug.Log(x + " " + y + " DROPPDITEMID"+ level.data[x][y].scriptableItemID);
+							if (scriptableItems[i].itemType == 1)
+							{
+								Instantiate(data.sword, new Vector3(x, 0, -y), Quaternion.identity);
+							}
+							else
+							{
+								Instantiate(data.chest, new Vector3(x, 0, -y), Quaternion.identity);
+							}
+						}
+					}
+				}
+				
+			}
+		}
+
+		playerObject = Instantiate(playerObject, new Vector3(playerPosX, 0, -playerPosY), Quaternion.identity);
+	}
 
     void Update()
 	{
@@ -321,8 +372,6 @@ public class Level
 public class Player
 {
 	public int health;
-	//public int armor;
-	public List<Item> inventory;
 	public float actionReloadSpeed;
 	public int actionReload;
 	public int attackDamage;
@@ -332,16 +381,4 @@ public class Player
     internal int baseAttack;
 }
 
-
-
-
-
-
-
-//[Serializable]
-//public class Enemy
-//{
-//	public int health;
-//	public Attack attack;
-//}
 

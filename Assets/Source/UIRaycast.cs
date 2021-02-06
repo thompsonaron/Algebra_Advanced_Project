@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 //using static UIGenerated;
 
 public partial class Game
@@ -220,7 +221,11 @@ public partial class Game
 
         }
 
-
+        if (isUIElementDown(UIGeneratedGameScene.SaveQuitBtn))
+        {
+            SaveGame();
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     bool isUIElementDown(GameObject go)

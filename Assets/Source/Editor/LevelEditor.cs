@@ -51,8 +51,6 @@ public class LevelEditor : EditorWindow
 
 	void OnGUI()
     {
-        
-
         LoadLevellFields();
         GUI.color = Color.white;
         // SAVE

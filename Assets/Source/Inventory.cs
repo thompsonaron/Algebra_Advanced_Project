@@ -27,12 +27,12 @@ public partial class Game
         inventory = new ItemScriptableObject[16];
         inventoryImages = new Image[16];
 
-        inventory[1] = scriptableItems [0];
-        inventory[0] = scriptableItems[3];
-        inventory[2] = scriptableItems[2];
-        inventory[3] = scriptableItems[1];
-        inventory[4] = scriptableItems[4];
-        inventory[5] = scriptableItems[5];
+        //inventory[1] = scriptableItems[0];
+        //inventory[0] = scriptableItems[3];
+        //inventory[2] = scriptableItems[2];
+        //inventory[3] = scriptableItems[1];
+        //inventory[4] = scriptableItems[4];
+        //inventory[5] = scriptableItems[5];
         initInventoryImages();
         LoadInventoryImages();
     }
@@ -46,7 +46,17 @@ public partial class Game
 
     public void GettemFromDroppedTile()
     {
-        AddItemToInventory(scriptableItems[currentTile.scriptableItemID]);
+        //AddItemToInventory(scriptableItems[currentTile.scriptableItemID]);
+        for (int i = 0; i < scriptableItems.Length; i++)
+        {
+            if (level.data[playerPosX][playerPosY].scriptableItemID == scriptableItems[i].ID)
+            {
+                AddItemToInventory(scriptableItems[i]);
+            }
+        }
+        //AddItemToInventory(scriptableItems[level.data[playerPosX][playerPosY].scriptableItemID]);
+        //Debug.Log("PLAYER POS PICKUP " + playerPosX + " " + playerPosY);
+        //Debug.Log("PLAYER POS PICKUP " + level.data[playerPosX][playerPosY].scriptableItemID);
     }
 
     // 1 == weapon, 2 == helmet, 3 == chest
@@ -84,7 +94,8 @@ public partial class Game
                 if (inventory[itemSlot] == scriptableItems[i])
                 {
                     Debug.Log("DROPPED! " + itemSlot);
-                    currentTile.scriptableItemID = i;
+                    currentTile.scriptableItemID = scriptableItems[i].ID;
+                    level.data[playerPosX][playerPosY].scriptableItemID = scriptableItems[i].ID;
                     level.grid[playerPosX][playerPosY] = TileType.DroppedItem;
                     inventory[itemSlot] = null;
                     LoadInventoryImages();
@@ -225,6 +236,19 @@ public partial class Game
             {
                 inventoryImages[i].sprite = defaultInvetoryLook;
             }
+        }
+
+        if (helmet != null)
+        {
+            helmetImage.sprite = helmet.icon;
+        }
+        if (chest != null)
+        {
+            chestImage.sprite = chest.icon;
+        }
+        if (weapon != null)
+        {
+            weaponImage.sprite = weapon.icon;
         }
     }
 

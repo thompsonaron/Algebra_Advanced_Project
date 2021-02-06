@@ -2823,6 +2823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062823bad9058584db77dffdf8ab4741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelProgress: {fileID: 11400000, guid: a0623deb801bed546b7975c0b5ad9659, type: 2}
   playerObject: {fileID: 140808, guid: 10f9cee6cfdd7df43a5d805acd44763f, type: 3}
   playerPosX: 0
   playerPosY: 0
@@ -2867,12 +2868,12 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   scriptableItems:
-  - {fileID: 11400000, guid: 2cbdd8295c6670845b384177c31b166c, type: 2}
-  - {fileID: 11400000, guid: 1311cadbde6d83e4982a52bbb0e827d3, type: 2}
-  - {fileID: 11400000, guid: c37e30ff558f10042906ddbadde62ca8, type: 2}
-  - {fileID: 11400000, guid: 33c1a5f555b8ee94ca6a406c31110bce, type: 2}
-  - {fileID: 11400000, guid: f25c465094f9e444f9e4bb9459ec6357, type: 2}
+  - {fileID: 11400000, guid: b27bd33362cc6014387b478c6638405f, type: 2}
+  - {fileID: 11400000, guid: 72e96cea6da000f4d961c69b02d3e23c, type: 2}
+  - {fileID: 11400000, guid: 985b747fdc722e642abf9d82d693c2c4, type: 2}
   - {fileID: 11400000, guid: b664d0315c730924386fece56c401ce9, type: 2}
+  - {fileID: 11400000, guid: 5dfbe2fa294d21847a9e56079e452f66, type: 2}
+  - {fileID: 11400000, guid: 809ca697b3c21504aa5b7ced72c2e9a5, type: 2}
   inventory: []
   helmet: {fileID: 0}
   chest: {fileID: 0}
