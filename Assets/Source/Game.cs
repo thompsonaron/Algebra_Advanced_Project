@@ -14,8 +14,8 @@ public partial class Game : MonoBehaviour
 	private float actionReloadTime;
 	private bool canDoAction = false;
 
-	[HideInInspector] public float enemyKillCounter;
-	[HideInInspector] public float stepsCounter;
+	[HideInInspector] public int enemyKillCounter;
+	[HideInInspector] public int stepsCounter;
 	// 1 == kill all enemies, 2 == kill the boss, 3 == reach goal in 10 steps
 	[HideInInspector] public int goalType;
 	[HideInInspector] public bool bossKilled;

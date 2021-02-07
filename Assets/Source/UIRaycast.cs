@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System.IO;
 //using static UIGenerated;
 
 public partial class Game
@@ -225,6 +226,33 @@ public partial class Game
         {
             SaveGame();
             SceneManager.LoadScene("MainMenu");
+        }
+        if (isUIElementDown(UIGeneratedGameScene.RetryBtn))
+        {
+            File.Delete(Util.getSavePath(levelProgress.levelToLoad));
+            SceneManager.LoadScene("GameScene");
+        }
+        if (isUIElementDown(UIGeneratedGameScene.ContinueBtn))
+        {
+            File.Delete(Util.getSavePath(levelProgress.levelToLoad));
+            switch (levelProgress.levelToLoad)
+            {
+                case 1:
+                    levelProgress.level1Completed = true;
+                    levelProgress.levelToLoad = 2;
+                    break;
+                case 2:
+                    levelProgress.level2Completed = true;
+                    levelProgress.levelToLoad = 3;
+                    break;
+                case 3:
+                    levelProgress.level3Completed = true;
+                    SceneManager.LoadScene("MainMenu");
+                    break;
+                default:
+                    break;
+            }
+            SceneManager.LoadScene("GameScene");
         }
     }
 

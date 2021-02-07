@@ -12,6 +12,8 @@ public partial class Game
         save.playerPosX = playerPosX;
         save.playerPosY = playerPosY;
         save.player = player;
+        save.stepsCounter = stepsCounter;
+        save.killCounter = enemyKillCounter;
         for (int i = 0; i < save.inventory.Length; i++)
         {
             if (inventory[i] != null)
@@ -53,6 +55,8 @@ public partial class Game
         playerPosX = saveData.playerPosX;
         playerPosY = saveData.playerPosY;
         player = saveData.player;
+        enemyKillCounter = saveData.killCounter;
+        stepsCounter = saveData.stepsCounter;
         //inventory = saveData.inventory;
 
         for (int i = 0; i < saveData.inventory.Length; i++)
@@ -120,4 +124,6 @@ public class SaveData
     public Level levelData;
     public int playerPosX, playerPosY;
     public Player player;
+    public int stepsCounter;
+    public int killCounter;
 }

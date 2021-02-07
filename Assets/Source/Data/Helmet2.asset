@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Helmet2
   m_EditorClassIdentifier: Assembly-CSharp::ItemScriptableObject
   ID: 4
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 76e76822084f78a40b4815a30fb60f2f, type: 3}
   actionReloadSpeed: 0
   damage: 0
-  health: 0
+  health: 11
   ranged: 0
-  itemType: 0
+  itemType: 2

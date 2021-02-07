@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Sword1
   m_EditorClassIdentifier: Assembly-CSharp::ItemScriptableObject
   ID: 5
-  icon: {fileID: 0}
-  actionReloadSpeed: 0
-  damage: 0
+  icon: {fileID: 21300000, guid: 9234871c04c5c9d42abd7bd385990639, type: 3}
+  actionReloadSpeed: 1.5
+  damage: 13
   health: 0
   ranged: 0
-  itemType: 0
+  itemType: 1
