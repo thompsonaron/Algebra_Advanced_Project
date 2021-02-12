@@ -50,6 +50,7 @@ public partial class Game
         // inventory
         if (Input.GetKeyDown(KeyCode.I))
         {
+            SoundManager.instance.Play("Menu");
             Debug.Log("Inventory");
             inventoryActive = !inventoryActive;
             UIGeneratedGameScene.InventoryPanel.SetActive(inventoryActive);
@@ -58,6 +59,7 @@ public partial class Game
         // menu
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            SoundManager.instance.Play("Menu");
             menuActive = !menuActive;
             UIGeneratedGameScene.MenuPanel.SetActive(menuActive);
         }
@@ -65,9 +67,10 @@ public partial class Game
 
     public void ActivateWinUi()
     {
+        
         UIGeneratedGameScene.WinLosePanel.SetActive(true);
         UIGeneratedGameScene.YouLoseLbl.SetActive(false);
-        UIGeneratedGameScene.ContinueBtn.SetActive(false);
+        UIGeneratedGameScene.ContinueBtn.SetActive(true);
     }
 
     public void ActivateLossUI()

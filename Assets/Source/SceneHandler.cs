@@ -41,12 +41,14 @@ public class SceneHandler : MonoBehaviour
 
     private void CloselvlSelector()
     {
+        SoundManager.instance.Play("Menu");
         UIGeneratedMainMenu.MainMenuPanel.SetActive(true);
         UIGeneratedMainMenu.LevelSelectPanel.SetActive(false);
     }
 
     private void OpenLvlSelector()
     {
+        SoundManager.instance.Play("Menu");
         UIGeneratedMainMenu.MainMenuPanel.SetActive(false);
         UIGeneratedMainMenu.LevelSelectPanel.SetActive(true);
     }
@@ -54,19 +56,23 @@ public class SceneHandler : MonoBehaviour
     private void ExitGame()
     {
 #if UNITY_EDITOR
+        SoundManager.instance.Play("Menu");
         UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_STANDALONE
+        SoundManager.instance.Play("Menu");
             Application.Quit();
 #endif
     }
 
     private void StartCreative()
     {
-        SceneManager.LoadScene("LevelCreator");
+        SoundManager.instance.Play("Menu");
+        SceneManager.LoadScene("LevelEditor");
     }
 
     private void StartGame(int sceneNumber)
     {
+        SoundManager.instance.Play("Menu");
         progressInfo.levelToLoad = sceneNumber;
         SceneManager.LoadScene("GameScene");
     }

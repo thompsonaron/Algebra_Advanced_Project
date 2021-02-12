@@ -90,7 +90,7 @@ public partial class Game : MonoBehaviour
 				if (level.grid[x][y] == TileType.Boss)
 				{
 					level.data[x][y].additionalHealth = 30;
-					level.data[x][y].additionalAttack = 5;
+					level.data[x][y].additionalAttack = 4;
 				}
 			}
 		}
@@ -161,13 +161,15 @@ public partial class Game : MonoBehaviour
 			case 1:
                 if (enemyKillCounter >= 3)
                 {
+					SoundManager.instance.Play("Victory");
 					Debug.Log("KILLED ENEMIES WIN!");
 					ActivateWinUi();
-                }
+				}
 				break;
 			case 2:
                 if (bossKilled)
                 {
+					SoundManager.instance.Play("Victory");
 					Debug.Log("KILLLED THE BOSS");
 					ActivateWinUi();
                 }
@@ -175,6 +177,7 @@ public partial class Game : MonoBehaviour
 			case 3:
                 if (currentTileType == TileType.Goal)
                 {
+					SoundManager.instance.Play("Victory");
 					Debug.Log("REACHED THE GOAL");
 					ActivateWinUi();
                 }
@@ -228,8 +231,9 @@ public partial class Game : MonoBehaviour
         {
 			//Debug.Log("COMBAT " + currentEnemyAttackTime);
 			currentEnemyAttackTime -= Time.deltaTime;
-            if (currentEnemyAttackTime <= 0f)
+            if (currentEnemyAttackTime <= 0f  && player.health > 0)
             {
+				SoundManager.instance.Play("Melee");
 				player.health -= currentTile.additionalAttack;
 				player.damageTaken += currentTile.additionalAttack;
 				Debug.Log("PLAYER HEALTH " + player.health);

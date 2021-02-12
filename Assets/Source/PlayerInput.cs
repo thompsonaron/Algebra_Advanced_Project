@@ -17,6 +17,7 @@ public partial class Game
         {
             if (currentTileType == TileType.Enemy || currentTileType == TileType.Boss)
             {
+                SoundManager.instance.Play("Sword");
                 level.data[playerPosX][playerPosY].additionalHealth -= player.attackDamage;
                 //currentTile.additionalHealth -= player.attackDamage;
                 actionReloadTime = player.actionReloadSpeed;
@@ -30,10 +31,13 @@ public partial class Game
                         Debug.Log("KILLED THE BOSS");
                         bossKilled = true;
                     }
-                    enemyKillCounter++;
-                    // TODO enemy killed something
-                    DeactiveCurrentTileObject();
-                    level.grid[playerPosX][playerPosY] = TileType.Grass;
+                    else
+                    {
+                        enemyKillCounter++;
+                        // TODO enemy killed something
+                        DeactiveCurrentTileObject();
+                        level.grid[playerPosX][playerPosY] = TileType.Grass;
+                    }
                 }
             }
             
@@ -52,6 +56,7 @@ public partial class Game
             playerPosY--;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
+            Debug.Log("StepWood");
         }
         if (Input.GetKeyDown(KeyCode.S) && canMoveDown)
         {
@@ -60,6 +65,7 @@ public partial class Game
             playerPosY++;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
+            Debug.Log("StepWood");
         }
         if (Input.GetKeyDown(KeyCode.A) && canMoveLeft)
         {
@@ -68,6 +74,7 @@ public partial class Game
             playerPosX--;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
+            Debug.Log("StepWood");
         }
         if (Input.GetKeyDown(KeyCode.D) && canMoveRight)
         {
@@ -76,6 +83,7 @@ public partial class Game
             playerPosX++;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
+            Debug.Log("StepWood");
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -86,6 +94,7 @@ public partial class Game
                 DeactiveCurrentTileObject();
                 level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
+                Debug.Log("Chest");
             }
             else if (currentTileType == TileType.Sword)
             {
@@ -93,6 +102,7 @@ public partial class Game
                 DeactiveCurrentTileObject();
                 level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
+                Debug.Log("Chest");
             }
             else if (currentTileType == TileType.DroppedItem)
             {
@@ -100,6 +110,7 @@ public partial class Game
                 DeactiveCurrentTileObject();
                 level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
+                Debug.Log("Chest");
             }
 
         }

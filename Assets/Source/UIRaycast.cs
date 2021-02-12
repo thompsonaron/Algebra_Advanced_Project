@@ -54,78 +54,97 @@ public partial class Game
         // LEFT CLICK
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot0))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(0);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot1))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(1);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot2))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(2);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot3))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(3);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot4))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(4);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot5))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(5);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot6))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(6);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot7))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(7);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot8))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(8);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot9))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(9);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot10))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(10);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot11))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(11);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot12))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(12);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot13))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(13);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot14))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(14);
         }
         if (isUIElementDown(UIGeneratedGameScene.ItemSlot15))
         {
+            SoundManager.instance.Play("Menu");
             EquipItem(15);
         }
         if (isUIElementDown(UIGeneratedGameScene.HelmentSlot))
         {
+            SoundManager.instance.Play("Menu");
             UnequipItem(2);
         }
         if (isUIElementDown(UIGeneratedGameScene.WeaponSlot))
         {
+            SoundManager.instance.Play("Menu");
             UnequipItem(1);
         }
         if (isUIElementDown(UIGeneratedGameScene.ChestSlot))
         {
+            SoundManager.instance.Play("Menu");
             UnequipItem(3);
         }
 
@@ -133,66 +152,82 @@ public partial class Game
         // RIGHT CLICK
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot0))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(0);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot1))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(1);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot2))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(2);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot3))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(3);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot4))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(4);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot5))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(5);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot6))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(6);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot7))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(7);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot8))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(8);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot9))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(9);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot10))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(10);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot11))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(11);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot12))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(12);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot13))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(13);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot14))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(14);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.ItemSlot15))
         {
+            SoundManager.instance.Play("Menu");
             DropItem(15);
         }
         if (isUIElementDownRightClick(UIGeneratedGameScene.HelmentSlot))
@@ -224,16 +259,31 @@ public partial class Game
 
         if (isUIElementDown(UIGeneratedGameScene.SaveQuitBtn))
         {
+            SoundManager.instance.Play("Menu");
             SaveGame();
             SceneManager.LoadScene("MainMenu");
         }
         if (isUIElementDown(UIGeneratedGameScene.RetryBtn))
         {
+            SoundManager.instance.Play("Menu");
+            File.Delete(Util.getSavePath(levelProgress.levelToLoad));
+            SceneManager.LoadScene("GameScene");
+        }
+        if (isUIElementDown(UIGeneratedGameScene.QuitBtn))
+        {
+            SoundManager.instance.Play("Menu");
+            File.Delete(Util.getSavePath(levelProgress.levelToLoad));
+            SceneManager.LoadScene("MainMenu");
+        }
+        if (isUIElementDown(UIGeneratedGameScene.LossRetryBtn))
+        {
+            SoundManager.instance.Play("Menu");
             File.Delete(Util.getSavePath(levelProgress.levelToLoad));
             SceneManager.LoadScene("GameScene");
         }
         if (isUIElementDown(UIGeneratedGameScene.ContinueBtn))
         {
+            SoundManager.instance.Play("Menu");
             File.Delete(Util.getSavePath(levelProgress.levelToLoad));
             switch (levelProgress.levelToLoad)
             {
