@@ -23,6 +23,32 @@ public partial class Game : MonoBehaviour
 
 	public LevelData data;
 	Level level;
+
+
+	private float currentEnemyAttackSpeed;
+	private float currentEnemyAttackTime;
+
+	public bool canMoveUp;
+	public bool canMoveDown;
+	public bool canMoveLeft;
+	public bool canMoveRight;
+	public bool isInCombat;
+
+	TileType leftTileType;
+	TileType rightTileType;
+	TileType upperTileType;
+	TileType lowerTileType;
+	TileType currentTileType;
+	TileData leftTile;
+	TileData rightTile;
+	TileData upperTile;
+	TileData lowerTile;
+	TileData currentTile;
+
+	MoveDirection lastMove = MoveDirection.None;
+
+	[HideInInspector] public GameObject[] chestsAndSwords = new GameObject[20];
+
 	void Start()
 	{
 		Debug.Log(levelProgress.levelToLoad);
@@ -154,7 +180,6 @@ public partial class Game : MonoBehaviour
 	}
 
 
-	// TODO Disable input etc.
 	public void CheckForWin()
     {
         switch (level.goalType)
@@ -210,8 +235,7 @@ public partial class Game : MonoBehaviour
         }
     }
 
-	private float currentEnemyAttackSpeed;
-	private float currentEnemyAttackTime;
+	
 
 	public void Combat()
     {
@@ -244,32 +268,6 @@ public partial class Game : MonoBehaviour
         }
     }
 
-
-	public bool canMoveUp;
-	public bool canMoveDown;
-	public bool canMoveLeft;
-	public bool canMoveRight;
-	public bool isInCombat;
-
-	TileType leftTileType;
-	TileType rightTileType;
-	TileType upperTileType;
-	TileType lowerTileType;
-	TileType currentTileType;
-	TileData leftTile;
-	TileData rightTile;
-	TileData upperTile;
-	TileData lowerTile;
-	TileData currentTile;
-
-	MoveDirection lastMove = MoveDirection.None;
-
-	[HideInInspector] public GameObject[] chestsAndSwords = new GameObject[20];
-
-	void LoadChestsAndSwords()
-    {
-		
-    }
 
 	void CheckSurroundingTiles()
     {

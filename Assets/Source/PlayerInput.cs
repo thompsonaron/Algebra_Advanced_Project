@@ -148,26 +148,26 @@ public partial class Game
         }
     }
 
-    public void CheckCurrentTile()
-    {
-        switch (currentTileType)
-        {
-            case TileType.Enemy:
-               // isInCombat = true;
-                break;
-            case TileType.Goal:
-                // TODO player wins
-                break;
-            case TileType.Sword:
-                // TODO pickup
-                break;
-            case TileType.Chest:
-                // TODO pickup
-                break;
-            default:
-                break;
-        }
-    }
+    //public void CheckCurrentTile()
+    //{
+    //    switch (currentTileType)
+    //    {
+    //        case TileType.Enemy:
+    //           // isInCombat = true;
+    //            break;
+    //        case TileType.Goal:
+    //            // TODO player wins
+    //            break;
+    //        case TileType.Sword:
+    //            // TODO pickup
+    //            break;
+    //        case TileType.Chest:
+    //            // TODO pickup
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 
     public void CurrentTileUpdate()
     {

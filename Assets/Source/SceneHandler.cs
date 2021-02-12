@@ -23,7 +23,6 @@ public class SceneHandler : MonoBehaviour
         }
         else
         {
-            Debug.Log("NUCOLOR");
             UIGeneratedMainMenu.BtnLvl2.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.4f);
             UIGeneratedMainMenu.BtnLvl2.GetComponent<Button>().enabled = false;
         }

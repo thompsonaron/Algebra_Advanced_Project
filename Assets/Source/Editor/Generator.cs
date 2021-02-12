@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class Generator
 {
-    [MenuItem(itemName: "UIGenerator/Generate")]
+    [MenuItem(itemName: "Generator/Generate UI")]
     public static void generate()
     {
         var filePath = Application.dataPath + "/UIGenerated" + SceneManager.GetActiveScene().name + ".cs";

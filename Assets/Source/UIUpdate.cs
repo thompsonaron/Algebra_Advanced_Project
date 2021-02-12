@@ -85,7 +85,6 @@ public partial class Game
 
     public void ActivateWinUi()
     {
-        
         UIGeneratedGameScene.WinLosePanel.SetActive(true);
         UIGeneratedGameScene.LossRetryBtn.SetActive(false);
         UIGeneratedGameScene.ContinueBtn.SetActive(true);
