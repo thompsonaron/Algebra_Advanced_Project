@@ -23,6 +23,24 @@ public partial class Game
         actionReloadLbl = UIGeneratedGameScene.ActionReloadLbl.GetComponent<Text>();
     }
 
+    public void SetWinLbl()
+    {
+        switch (level.goalType)
+        {
+            case 1:
+                UIGeneratedGameScene.WinLbl.GetComponent<Text>().text = "Kill 3 enemies";
+                break;
+            case 2:
+                UIGeneratedGameScene.WinLbl.GetComponent<Text>().text = "Kill the boss";
+                break;
+            case 3:
+                UIGeneratedGameScene.WinLbl.GetComponent<Text>().text = "Reach goal in 10 steps";
+                break;
+            default:
+                break;
+        }
+    }
+
     public void UIUpdate()
     {
 
@@ -69,15 +87,17 @@ public partial class Game
     {
         
         UIGeneratedGameScene.WinLosePanel.SetActive(true);
-        UIGeneratedGameScene.YouLoseLbl.SetActive(false);
+        UIGeneratedGameScene.LossRetryBtn.SetActive(false);
         UIGeneratedGameScene.ContinueBtn.SetActive(true);
+        UIGeneratedGameScene.YouLoseLbl.SetActive(false);
     }
 
     public void ActivateLossUI()
     {
         UIGeneratedGameScene.WinLosePanel.SetActive(true);
-        UIGeneratedGameScene.YouWinLbl.SetActive(false);
+        UIGeneratedGameScene.LossRetryBtn.SetActive(true);
         UIGeneratedGameScene.ContinueBtn.SetActive(false);
+        UIGeneratedGameScene.YouWinLbl.SetActive(false);
     }
 
     public void UpdatePlayerHealth()

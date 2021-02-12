@@ -30,6 +30,7 @@ public partial class Game
                     {
                         Debug.Log("KILLED THE BOSS");
                         bossKilled = true;
+                        CheckForWin();
                     }
                     else
                     {
@@ -56,7 +57,7 @@ public partial class Game
             playerPosY--;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
-            Debug.Log("StepWood");
+            SoundManager.instance.Play("StepWood");
         }
         if (Input.GetKeyDown(KeyCode.S) && canMoveDown)
         {
@@ -65,7 +66,7 @@ public partial class Game
             playerPosY++;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
-            Debug.Log("StepWood");
+            SoundManager.instance.Play("StepWood");
         }
         if (Input.GetKeyDown(KeyCode.A) && canMoveLeft)
         {
@@ -74,7 +75,7 @@ public partial class Game
             playerPosX--;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
-            Debug.Log("StepWood");
+            SoundManager.instance.Play("StepWood");
         }
         if (Input.GetKeyDown(KeyCode.D) && canMoveRight)
         {
@@ -83,26 +84,28 @@ public partial class Game
             playerPosX++;
             actionReloadTime = player.actionReloadSpeed;
             stepsCounter++;
-            Debug.Log("StepWood");
+            SoundManager.instance.Play("StepWood");
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (currentTileType == TileType.Chest)
             {
-                GetRandomItem();
+                //GetRandomItem();
+                GetRandomArmor();
                 DeactiveCurrentTileObject();
                 level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
-                Debug.Log("Chest");
+                SoundManager.instance.Play("Chest");
             }
             else if (currentTileType == TileType.Sword)
             {
-                GetRandomItem();
+                //GetRandomItem();
+                GetRandomWeapon();
                 DeactiveCurrentTileObject();
                 level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
-                Debug.Log("Chest");
+                SoundManager.instance.Play("Chest");
             }
             else if (currentTileType == TileType.DroppedItem)
             {
@@ -110,7 +113,7 @@ public partial class Game
                 DeactiveCurrentTileObject();
                 level.grid[playerPosX][playerPosY] = TileType.Grass;
                 actionReloadTime = player.actionReloadSpeed;
-                Debug.Log("Chest");
+                SoundManager.instance.Play("Chest");
             }
 
         }

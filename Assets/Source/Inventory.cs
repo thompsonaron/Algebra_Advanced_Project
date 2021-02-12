@@ -44,6 +44,18 @@ public partial class Game
         AddItemToInventory(scriptableItems[result]);
     }
 
+    public void GetRandomArmor()
+    {
+        int result = UnityEngine.Random.Range(0, 3);
+        AddItemToInventory(scriptableItems[result]);
+    }
+
+    public void GetRandomWeapon()
+    {
+        int result = UnityEngine.Random.Range(3, 6);
+        AddItemToInventory(scriptableItems[result]);
+    }
+
     public void GettemFromDroppedTile()
     {
         //AddItemToInventory(scriptableItems[currentTile.scriptableItemID]);

@@ -45,6 +45,7 @@ public partial class Game : MonoBehaviour
 			instantiateLevel();
         }
 		goalType = level.goalType;
+		SetWinLbl();
 	}
 
 	void initPlayerStats()
@@ -169,8 +170,9 @@ public partial class Game : MonoBehaviour
 			case 2:
                 if (bossKilled)
                 {
+					bossKilled = false;
 					SoundManager.instance.Play("Victory");
-					Debug.Log("KILLLED THE BOSS");
+					Debug.Log("KILLLED THE BOSS CHECK");
 					ActivateWinUi();
                 }
 				break;

@@ -52,6 +52,7 @@ public static class UIGeneratedGameScene{
 	public static GameObject RetryBtnTxt;
 	public static GameObject SaveQuitBtn;
 	public static GameObject SaveQuitBtnTxt;
+	public static GameObject WinLbl;
 
 	public static void init() {
 		Canvas = GameObject.Find("Canvas");
@@ -89,6 +90,7 @@ public static class UIGeneratedGameScene{
 		PlayerHealthLblInfo = GameObject.Find("Canvas/GamePlayPanel/PlayerHealthLblInfo");
 		PlayerHealthLbl = GameObject.Find("Canvas/GamePlayPanel/PlayerHealthLbl");
 		EnemyHealthInfo = GameObject.Find("Canvas/GamePlayPanel/EnemyHealthInfo");
+		WinLbl = GameObject.Find("Canvas/GamePlayPanel/WinLbl");
 		EnemyHealthLb = GameObject.Find("Canvas/GamePlayPanel/EnemyHealthLb");
 		InfoPanel = GameObject.Find("Canvas/InfoPanel");
 		PickUpLbl = GameObject.Find("Canvas/InfoPanel/PickUpLbl");
