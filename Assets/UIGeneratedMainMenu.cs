@@ -17,6 +17,8 @@ public static class UIGeneratedMainMenu{
 	public static GameObject BtnLvl3Txt;
 	public static GameObject BtnReturn;
 	public static GameObject BtnReturnTxt;
+	public static GameObject BtnHowTo;
+	public static GameObject HowToTxt;
 
 	public static void init() {
 		Canvas = GameObject.Find("Canvas");
@@ -26,6 +28,8 @@ public static class UIGeneratedMainMenu{
 		BtnCreate = GameObject.Find("Canvas/MainMenuPanel/BtnCreate");
 		BtnCreateText = GameObject.Find("Canvas/MainMenuPanel/BtnCreate/BtnCreateText");
 		BtnExit = GameObject.Find("Canvas/MainMenuPanel/BtnExit");
+		BtnHowTo = GameObject.Find("Canvas/MainMenuPanel/BtnHowTo");
+		HowToTxt = GameObject.Find("Canvas/MainMenuPanel/BtnExit/HowToTxt");
 		BtnExitText = GameObject.Find("Canvas/MainMenuPanel/BtnExit/BtnExitText");
 		LevelSelectPanel = GameObject.Find("Canvas/LevelSelectPanel");
 		BtnLvl1 = GameObject.Find("Canvas/LevelSelectPanel/BtnLvl1");

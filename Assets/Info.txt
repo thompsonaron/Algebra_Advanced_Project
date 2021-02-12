@@ -1,0 +1,21 @@
+#GreetingsDialogue
+  Hello! What do you want to know?
+  -How do I move?
+    :NeutralDialogue
+  - How do I attack?
+    :AggressiveDialogue
+$
+#AggressiveDialogue
+  Press space!
+  -How do I move?
+    :NeutralDialogue
+   -Thanks!
+    :GreetingsDialogue
+$
+#NeutralDialogue
+  WASD keys!
+  - How do I attack?
+     :AggressiveDialogue
+  - Ok, thanks {print(HelloDone)}
+     :GreetingsDialogue   
+$

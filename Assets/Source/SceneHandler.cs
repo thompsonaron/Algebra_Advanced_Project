@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SceneHandler : MonoBehaviour
 {
     public LevelProgressInfo progressInfo;
+    public GameObject howToPlay;
 
     private void Start()
     {
@@ -15,6 +16,8 @@ public class SceneHandler : MonoBehaviour
         UIGeneratedMainMenu.BtnExit.GetComponent<Button>().onClick.AddListener(() => ExitGame());
         UIGeneratedMainMenu.BtnLvl1.GetComponent<Button>().onClick.AddListener(() => StartGame(1));
         UIGeneratedMainMenu.BtnReturn.GetComponent<Button>().onClick.AddListener(() => CloselvlSelector());
+        UIGeneratedMainMenu.BtnHowTo.GetComponent<Button>().onClick.AddListener(() => OpenHowTo());
+        howToPlay.SetActive(false);
 
 
         if (progressInfo.level1Completed)
@@ -36,6 +39,11 @@ public class SceneHandler : MonoBehaviour
             UIGeneratedMainMenu.BtnLvl3.GetComponent<Button>().enabled = false;
         }
         CloselvlSelector();
+    }
+
+    private void OpenHowTo()
+    {
+        howToPlay.SetActive(true);
     }
 
     private void CloselvlSelector()
